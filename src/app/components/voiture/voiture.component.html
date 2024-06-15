@@ -1,0 +1,115 @@
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">Remplissez les détails du véhicule</h2>
+                </div>
+                <div class="card-body">
+                  <form (ngSubmit)="predict_price()"  #vehicleForm="ngForm">
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="brand" class="form-label">Marque</label>
+                              <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="voiture.brand" required>
+                            </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="model" class="form-label">Modèle</label>
+                              <input type="text" class="form-control" id="model" name="model" [(ngModel)]="voiture.model" required>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="model_year" class="form-label">Année du modèle</label>
+                              <input type="text" class="form-control" id="model_year" name="model_year" [(ngModel)]="voiture.model_year" required>
+                            </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="fuel_type" class="form-label">Type de carburant</label>
+                               <select class="form-control" id="fuel_type" name="fuel_type" [(ngModel)]="voiture.fuel_type" required>
+                                  <option value="Gasoline">Gasoline</option>
+                                  <option value="Diesel">Diesel</option>
+                                  <option value="Electric">Electric</option>
+                               </select>
+                            </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="transmission" class="form-label">Transmission</label>
+                              <select class="form-control" id="transmission" name="transmission" [(ngModel)]="voiture.transmission" required>
+                                  <option value="Automatic">Automatic</option>
+                                  <option value="Manual">Manual</option>
+                              </select>
+                            </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="ext_col" class="form-label">Couleur extérieure</label>
+                              <input type="text" class="form-control" id="ext_col" name="ext_col" [(ngModel)]="voiture.ext_col" required>
+                            </div>
+                      </div>
+                    </div>
+                   
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="int_col" class="form-label">Couleur intérieure</label>
+                              <input type="text" class="form-control" id="int_col" name="int_col" [(ngModel)]="voiture.int_col" required>
+                            </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="accident" class="form-label">Accident</label>
+                              <select class="form-control" id="accident" name="accident" [(ngModel)]="voiture.accident" required>
+                                  <option value="None reported">No</option>
+                                  <option value="At least 1 accident or damage reported">1</option>
+                                  <option value="At least 2 accident or damage reported">2</option>
+                                  <option value="At least 3 accident or damage reported">+3</option>
+                              </select>
+                            </div>
+                      </div>
+                    </div>
+          
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="clean_title" class="form-label">Titre propre</label>
+                              <select class="form-control" id="clean_title" name="clean_title" [(ngModel)]="voiture.clean_title" required>
+                                <option value="Yes">Yes</option>
+                                <option value="Non">No</option>
+                              </select>
+                            </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="milage" class="form-label">Kilométrage</label>
+                              <input type="text" class="form-control" id="milage" name="milage" [(ngModel)]="voiture.milage" required>
+                            </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Prédire le prix</button>
+                  </form>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Resultat</h2>
+                  </div>
+                <div class="card-body">
+                    <p class="card-text">Price : {{price}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
